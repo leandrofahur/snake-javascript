@@ -22,7 +22,7 @@ const generateApple = () => {
     x: x,
     y: y
   };
-  
+
   // // Draw the circle (colision form):
   // ctx.beginPath();
   // ctx.arc(x, y, 10, 0, 2 * Math.PI, true);
@@ -47,4 +47,21 @@ const drawSnake = () => {
   ctx.fillStyle = 'blue';
   ctx.fill();
   ctx.closePath();
+
+  snake.x += snake.speed/2;
+  // snake.y += snake.speed/2;
+
+  if(snake.x + snake.w > canvas.width) {
+    snake.x = 0;
+  }
+  if(snake.x < 0) {
+    snake.x = canvas.width - snake.w;
+  }
+  if(snake.y + snake.h > canvas.height) {
+    snake.y = 0;
+  }
+  if(snake.y < 0) {
+    snake.y = canvas.height - snake.h;
+  }
+
 }
